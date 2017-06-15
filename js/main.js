@@ -8,30 +8,31 @@ var plantillaFinal = '';
 var cargarPagina = function() {
   cargarTemas();
   $('#add-form').submit(agregarTema);
-  $("#search-form").submit(filtrarTema);
+  // $("#search-form").submit(filtrarTema);
 };
 
 var cargarTemas = function() {
-  $.getJSON(api.url, function(temas) {
-    temas.forEach(crearTema);
-    $('#temas').append(plantillaFinal);
+  $.getJSON(api.url, function(topics) {
+    topics.forEach(function(tema) {
+      var autor = tema.author_name;
+      var contenido = tema.content;
+      var id = tema.id;
+      var respuestas = tema.responses_count;
+      plantillaFinal += plantilla.replace("__autor__", autor)
+        .replace("__contenido__", contenido)
+        .replace("__id__", id)
+        .replace("__respuestas__", respuestas);
+    });
+    $('#temas').html(plantillaFinal);
   });
 };
 
 
-var crearTema = function(tema) {
-  var autor = tema.author_name;
-  var contenido = tema.content;
-  var id = tema.id;
-  var respuestas = tema.responses_count;
-  plantillaFinal += plantilla.replace("__autor__", autor)
-    .replace("__contenido__", contenido).replace("__id__", id).replace("__respuestas__", respuestas);
-};
-
 var plantilla= '<div class="jumbotron">' +
   '<h2>__contenido__</h2>' +
   '<p>__autor__</p>' +
-  '<span>__respuestas__</span>' +
+  '<p>__respuestas__</p>' +
+  '<a href="verTopic.html?topic_id=__id__">+</a>'+
   '</div>';
 
 
@@ -48,21 +49,25 @@ var agregarTema = function(e) {
   });
 };
 
-var filtro = {
-  url: 'http://examen-laboratoria-sprint-5.herokuapp.com/topics/topic_id'
-}
-var filtrarTema = function(e) {
-  e.preventDefault();
-  var criterioBusqueda = $("#search").val().toLowerCase();
-  $.get(filtro.url, {
-    id
-    content: criterioBusqueda
-  }, function(response){
-    var temaFiltrado = $('#temas').filter(function(tema) {
-    return tema.id.toLowerCase().indexOf(criterioBusqueda) >= 0;
-  });
-  cargarTemas(temaFiltrado);
-});
-};
+
+// var filtrarTema = function(e) {
+//   e.preventDefault();
+//   var criterioBusqueda = $("#search").val().toLowerCase();
+//   var id = plantillaFinal.id;
+//   var autor = plantillaFinal.autor;
+//   console.log(criterioBusqueda);
+//   $.getJSON(api.url, {
+//     content: criterioBusqueda,
+//     id: id,
+//     author_name: autor
+//   }, function(response){
+//       var temaFiltrado = response.filter(function(plantillaFinal){
+//       return plantillaFinal.content.toLowerCase().indexOf(criterioBusqueda) >= 0;
+//     });
+//     crearTema(temaFiltrado);
+//   });
+// };
+
+
 
 $(document).ready(cargarPagina);

@@ -4,20 +4,60 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Topic</title>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
 
-    <h1>Aqui va el contenido de tema individual</h1>
-    <!-- Borar cuando se entienda como pasar info con topic id-->
-    <h1>Ingresa el topic id a este html usando la url.</h1>
-    <a href='verTopic.html?topic_id=2'>Algo asi</a><br/>
-    <a href='verTopic.html?topic_id=1'>O asi</a>
-    <!-- Borar cuando se entienda como pasar info con topic id-->
+    <nav class="navbar navbar-default">
+      <div class="container align">
+        <div class="navbar-header">
+          <h2> Foro Laboratoria ❤️ </h2>
+        </div>
+      </div>
+    </nav>
+
+    <section id="topic">
+
+    </section>
+
     
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+
+        <form id="add-form" class="form-horizontal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Respuesta</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Por</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="autor" placeholder="Por">
+                </div>
+                  <label for="inputEmail3" class="col-sm-3 control-label">Mensaje</label>
+                <div class="col-sm-7">
+                  <textarea name="name" rows="8" cols="60" id="contenido"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
      <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="js/functions.js"></script>
     <script src="js/verTopic.js"></script>
