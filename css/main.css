@@ -1,3 +1,39 @@
 .color-white {
   color: #fff;
 }
+
+.btn-nuevoTema {
+  margin-top: 3%;
+  position: relative;
+  left: 80%;
+}
+
+.num-res {
+  margin-left: 80%;
+}
+
+.nav-foro {
+  height: 80px;
+}
+
+#search-form {
+  margin-top: 2%;
+}
+
+#temas {
+  margin-top: 5%;
+}
+
+#topic {
+  width: 70%;
+  margin-left: 15%;
+}
+
+.contenido-res {
+  margin-left: 5%;
+}
+
+.btn-res {
+  position: relative;
+  left: 60%;
+}
